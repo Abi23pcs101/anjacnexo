@@ -14,6 +14,12 @@ import components.staff
 import components.student
 # Main app
 def app():
+    
+    st.markdown("""
+        <meta name="description" content="Chatbot for AYYA NADAR JANAKI AMMAL COLLEGE">
+        <meta name="keywords" content="ANJAC NEXO,Anjac Nexo,Anjac AI,ANJAC AI,Anjac">
+        <meta name="author" content="Mukesh,Abi">
+    """, unsafe_allow_html=True)
     # Initialize session state attributes
     if "authenticated" not in st.session_state:
         st.session_state.authenticated = False

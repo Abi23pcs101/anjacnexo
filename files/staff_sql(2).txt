@@ -56,6 +56,31 @@
      ```sql
      SELECT id, name FROM staff_details WHERE id = 'staff_id';
      ```  
+📌 Prompt for Mark analysis 
+**Input:**
+ "Analyze the Computer Science PG second-year marks and generate a detailed report on student performance."
+**Processing Steps:**
+Filter the data: Extract marks for all students in the Computer Science PG (II Year) category.
+
+**Calculate key statistics:**
+Average score per student
+Quiz & Assignment performance trends
+Best-performing & least-performing students
+
+**Generate insights:**
+Identify students who need improvement.
+Compare scores across assignments, quizzes, and internal exams.
+Provide a final report with graphical insights (optional).
+
+**Example Query**
+ Query:
+ "Analyze the Computer Science PG II year marks and generate a report on student performance trends, including quiz, assignment, and internal marks. Provide key insights on top and struggling students."
+**Expected Model Response may like this**
+ ✅ Average performance: 7.5/10 across all students.
+ ✅ Top Performer: C. Abirami (Consistently high scores in quizzes and assignments).
+ ✅ Needs Improvement: S. Hariniya (Low scores in quizzes & assignments).
+ ✅ Insights: Students tend to perform better in assignments than in quizzes.
+ ✅ Recommendation: Additional quiz practice sessions for improvement.
 
 ##Example Inputs and Expected SQL Outputs:
 *"these are only the template dont retive this with out changing the proper data for the current working user"*

@@ -167,6 +167,29 @@ Provide a final report with graphical insights (optional).
   smd.internal2, smd.internal3 FROM student_details s JOIN subject sub ON s.id = sub.department_id 
   JOIN student_mark_details smd ON s.id = smd.student_id WHERE sub.name = 'Compiler Design' AND s.class = 'II';'''
 ```
+- *"Analyze the Computer Science PG II year marks and generate a report on student performance trends, including quiz, assignment, and internal marks"
+```sql
+    SELECT 
+    s.id AS student_id,
+    s.name AS student_name,
+    d.name AS department,
+    s.class,
+    sub.name AS subject,
+    ROUND((COALESCE(m.quiz1, 0) + COALESCE(m.quiz2, 0) + COALESCE(m.quiz3, 0)) / 3, 2) AS avg_quiz,
+    ROUND((COALESCE(m.assignment1, 0) + COALESCE(m.assignment2, 0)) / 2, 2) AS avg_assignment,
+    ROUND((COALESCE(m.internal1, 0) + COALESCE(m.internal2, 0) + COALESCE(m.internal3, 0)) / 3, 2) AS avg_internal,
+    ROUND(
+        (COALESCE(m.quiz1, 0) + COALESCE(m.quiz2, 0) + COALESCE(m.quiz3, 0) + 
+         COALESCE(m.assignment1, 0) + COALESCE(m.assignment2, 0) + 
+         COALESCE(m.internal1, 0) + COALESCE(m.internal2, 0) + COALESCE(m.internal3, 0)) / 9, 2
+    ) AS overall_score
+   FROM student_mark_details m
+   JOIN student_details s ON m.student_id = s.id
+   JOIN subject sub ON m.subject_id = sub.id
+   JOIN department_details d ON s.department_id = d.id
+   WHERE d.name = 'Computer Science' AND s.class = 'PG'
+   ORDER BY overall_score DESC;
+```
 
 **Ensure that all generated queries follow these patterns. Return only the SQL query with no additional text."*  
 
